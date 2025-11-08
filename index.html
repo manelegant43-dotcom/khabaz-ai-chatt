@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khabaz AI Chatt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>🤖 Khabaz AI</h1>
+            <p>Din personliga AI-assistent</p>
+        </header>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                <div class="message-content">
+                    Hej! Jag är Khabaz AI. Hur kan jag hjälpa dig idag?
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <input type="text" id="messageInput" placeholder="Skriv ditt meddelande..." maxlength="500">
+            <button id="sendButton">Skicka</button>
+        </div>
+    </div>
+
+    <script src="knowledge.js"></script>
+    <script src="chatUI.js"></script>
+    
+    <!-- PWA Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker registrerad'))
+                .catch(err => console.log('Service Worker fel:', err));
+        }
+    </script>
+</body>
+</html>
